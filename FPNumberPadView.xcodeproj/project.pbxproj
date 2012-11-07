@@ -24,6 +24,7 @@
 		49C9AEF7164B134500D85EF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C9AEE8164B134500D85EF2 /* main.m */; };
 		49C9AEF8164B134500D85EF2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C9AEE9164B134500D85EF2 /* README.md */; };
 		49C9AEF9164B134500D85EF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C9AEEB164B134500D85EF2 /* ViewController.m */; };
+		49C9AF01164B178500D85EF2 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C9AF00164B178500D85EF2 /* screenshot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		49C9AEE9164B134500D85EF2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		49C9AEEA164B134500D85EF2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		49C9AEEB164B134500D85EF2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		49C9AF00164B178500D85EF2 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		491E04A7164A9912009BE29B = {
 			isa = PBXGroup;
 			children = (
+				49C9AF00164B178500D85EF2 /* screenshot.png */,
 				49C9AEE9164B134500D85EF2 /* README.md */,
 				49C9AED5164B134500D85EF2 /* AppDelegate.h */,
 				49C9AED6164B134500D85EF2 /* AppDelegate.m */,
@@ -202,6 +205,7 @@
 				49C9AEF5164B134500D85EF2 /* button@2x.png in Resources */,
 				49C9AEF6164B134500D85EF2 /* FPNumberPadView-Info.plist in Resources */,
 				49C9AEF8164B134500D85EF2 /* README.md in Resources */,
+				49C9AF01164B178500D85EF2 /* screenshot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
