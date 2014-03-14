@@ -26,11 +26,22 @@
  This is heavily inspired by the following post on Stack Overflow
  http://stackoverflow.com/questions/13205160/how-do-i-retrieve-keystrokes-from-a-custom-keyboard-on-an-ios-app
  */
-
 #import <UIKit/UIKit.h>
+
+
+@class FPNumberPadView;
+
+@protocol FPNumberPadViewDelegate <NSObject>
+
+@optional
+- (void)didSelectActionButton:(FPNumberPadView*)numPadView;
+
+@end
+
 
 @interface FPNumberPadView : UIView
 
 @property (nonatomic, assign) UITextField *textField;
+@property (weak, nonatomic) id<FPNumberPadViewDelegate> delegate;
 
 @end

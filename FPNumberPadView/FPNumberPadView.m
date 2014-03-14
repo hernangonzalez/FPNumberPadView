@@ -33,7 +33,7 @@
 @interface FPNumberPadView () <UIInputViewAudioFeedback> {
     UITextField *_textField;
 }
-@property (nonatomic,assign) id<UITextInput>delegate;
+@property (nonatomic,assign) id<UITextInput> inputDelegate;
 @end
 
 @implementation FPNumberPadView
@@ -53,7 +53,7 @@
     return view;
 }
 
-- (id<UITextInput>)delegate {
+- (id<UITextInput>)inputDelegate {
     return _textField;
 }
 
@@ -72,24 +72,35 @@
     
     switch (sender.tag) {
         case 10:
-            if (dot.location == NSNotFound) {
-                // only 1 decimal dot allowed
-                [self.delegate insertText:@"."];
-                [[UIDevice currentDevice] playInputClick];
+            if ([_delegate respondsToSelector:@selector(didSelectActionButton:)]) {
+                [_delegate didSelectActionButton:self];
             }
             break;
         case 11:
-            [self.delegate deleteBackward];
-            [[UIDevice currentDevice] playInputClick];
+            if ([_textField isFirstResponder]) {
+                [self.inputDelegate deleteBackward];
+            } else if ([[_textField text] length] > 0) {
+                NSString* text = [[_textField text] substringToIndex:[[_textField text] length] - 1];
+                [_textField setText:text];
+            }
             break;
         default:
             // max 2 decimals
             if (dot.location == NSNotFound || _textField.text.length <= dot.location + 2) {
-                [self.delegate insertText:[NSString stringWithFormat:@"%d", sender.tag]];
-                [[UIDevice currentDevice] playInputClick];
+                
+                NSString* string = [NSString stringWithFormat:@"%d", sender.tag];
+                if ([_textField isFirstResponder]) {
+                    [self.inputDelegate insertText:string];
+                } else {
+                    [_textField setText:[[_textField text] stringByAppendingString:string]];
+                }
+                
             }
             break;
     }
+    
+    [[UIDevice currentDevice] playInputClick];
+
 }
 
 - (IBAction)done:(UIButton *)sender {
