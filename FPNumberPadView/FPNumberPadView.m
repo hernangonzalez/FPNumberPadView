@@ -88,7 +88,7 @@
             // max 2 decimals
             if (dot.location == NSNotFound || _textField.text.length <= dot.location + 2) {
                 
-                NSString* string = [NSString stringWithFormat:@"%d", sender.tag];
+                NSString* string = [NSString stringWithFormat:@"%ld", (long)sender.tag];
                 if ([_textField isFirstResponder]) {
                     [self.inputDelegate insertText:string];
                 } else {
