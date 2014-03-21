@@ -92,7 +92,12 @@
                 if ([_textField isFirstResponder]) {
                     [self.inputDelegate insertText:string];
                 } else {
-                    [_textField setText:[[_textField text] stringByAppendingString:string]];
+                    if (![_textField delegate] || [[_textField delegate] textField:_textField
+                                                    shouldChangeCharactersInRange:NSMakeRange([string length], 1)
+                                                                 replacementString:string]) {
+                        NSString* newString = [[_textField text] stringByAppendingString:string];
+                        [_textField setText:newString];
+                    }
                 }
                 
             }
