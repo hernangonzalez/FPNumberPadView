@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: FPNumberPadView.xcworkspace # path to your xcodeproj folder
+xcode_scheme: FPNumberPadView
